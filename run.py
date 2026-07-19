@@ -1,12 +1,16 @@
-from subprocess import run
+from subprocess import run, DEVNULL
 from sys import argv, executable
 
-run([
-    executable, '-m', 'pip', 'install', 
-    'philh_myftp_biz==2026.07.18',
-    'tree-sitter',
-    'tree-sitter-kotlin'
-])
+run(
+    args = [
+        executable, '-m', 'pip', 'install', 
+        'philh_myftp_biz==2026.07.18',
+        'tree-sitter',
+        'tree-sitter-kotlin'
+    ],
+    stdout = DEVNULL,
+    stderr = DEVNULL
+)
 
 from philh_myftp_biz.terminal import set_package
 from philh_myftp_biz.pc import loc, Path
